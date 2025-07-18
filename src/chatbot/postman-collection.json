@@ -1,0 +1,283 @@
+{
+  "info": {
+    "name": "Parking IA - Chatbot API",
+    "description": "Colección de endpoints para el chatbot de Parking IA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/chatbot/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["chatbot", "health"]
+        },
+        "description": "Verifica que el servicio del chatbot esté funcionando correctamente"
+      },
+      "response": [
+        {
+          "name": "Health Check Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/chatbot/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["chatbot", "health"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"ok\",\n  \"message\": \"Chatbot service is running\",\n  \"timestamp\": \"2024-01-15T10:30:00.000Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Business Information",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/chatbot/business-info",
+          "host": ["{{baseUrl}}"],
+          "path": ["chatbot", "business-info"]
+        },
+        "description": "Obtiene información estadística del negocio de Parking IA"
+      },
+      "response": [
+        {
+          "name": "Business Info Success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/chatbot/business-info",
+              "host": ["{{baseUrl}}"],
+              "path": ["chatbot", "business-info"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"totalUsers\": 150,\n  \"recentActivity\": \"12 nuevos usuarios en las últimas 24 horas\",\n  \"features\": [\n    \"Detección en tiempo real\",\n    \"Dashboard web\",\n    \"API REST\",\n    \"Reportes y analytics\",\n    \"Notificaciones automáticas\"\n  ],\n  \"targetMarkets\": [\n    \"Empresas\",\n    \"Universidades\",\n    \"Centros comerciales\",\n    \"Hospitales\"\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Send Message - Basic",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"¿Qué es Parking IA?\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chatbot/message",
+          "host": ["{{baseUrl}}"],
+          "path": ["chatbot", "message"]
+        },
+        "description": "Envía un mensaje básico al chatbot"
+      },
+      "response": [
+        {
+          "name": "Message Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"¿Qué es Parking IA?\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chatbot/message",
+              "host": ["{{baseUrl}}"],
+              "path": ["chatbot", "message"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Parking IA es una solución innovadora de detección de parking en tiempo real que utiliza inteligencia artificial y visión computacional para optimizar el uso de espacios de estacionamiento en empresas y universidades.\",\n  \"timestamp\": \"2024-01-15T10:30:00.000Z\",\n  \"context\": \"parking-ia-business\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Send Message - Complete",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"¿Cuáles son los beneficios de Parking IA para empresas?\",\n  \"context\": \"parking-ia-business\",\n  \"userId\": \"user123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chatbot/message",
+          "host": ["{{baseUrl}}"],
+          "path": ["chatbot", "message"]
+        },
+        "description": "Envía un mensaje completo con contexto y userId al chatbot"
+      },
+      "response": [
+        {
+          "name": "Complete Message Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"¿Cuáles son los beneficios de Parking IA para empresas?\",\n  \"context\": \"parking-ia-business\",\n  \"userId\": \"user123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chatbot/message",
+              "host": ["{{baseUrl}}"],
+              "path": ["chatbot", "message"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Parking IA ofrece múltiples beneficios para empresas: optimización de espacios de estacionamiento, reducción del tiempo de búsqueda de parking, mejora de la experiencia de empleados y visitantes, y generación de reportes de ocupación en tiempo real. Nuestro sistema utiliza IA y visión computacional para detectar automáticamente la ocupación de espacios.\",\n  \"timestamp\": \"2024-01-15T10:30:00.000Z\",\n  \"context\": \"parking-ia-business\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Send Message - Error Example",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/chatbot/message",
+          "host": ["{{baseUrl}}"],
+          "path": ["chatbot", "message"]
+        },
+        "description": "Ejemplo de request inválido para mostrar manejo de errores"
+      },
+      "response": [
+        {
+          "name": "Validation Error",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chatbot/message",
+              "host": ["{{baseUrl}}"],
+              "path": ["chatbot", "message"]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"statusCode\": 400,\n  \"message\": [\n    \"message should not be empty\"\n  ],\n  \"error\": \"Bad Request\"\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Pre-request script para logs",
+          "console.log('Ejecutando request a:', pm.request.url);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Test script básico",
+          "pm.test('Status code es 200 o 400', function () {",
+          "    pm.expect(pm.response.code).to.be.oneOf([200, 400]);",
+          "});",
+          "",
+          "pm.test('Response es JSON válido', function () {",
+          "    pm.response.to.have.jsonBody();",
+          "});"
+        ]
+      }
+    }
+  ]
+} 

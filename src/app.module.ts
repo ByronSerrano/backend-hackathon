@@ -40,6 +40,9 @@ export class AppModule implements NestModule {
         { path: 'auth/login', method: RequestMethod.POST },
         { path: 'user', method: RequestMethod.POST },
         { path: 'user/:id', method: RequestMethod.GET },
+        { path: 'chatbot/message', method: RequestMethod.POST },
+        { path: 'chatbot/business-info', method: RequestMethod.GET },
+        { path: 'chatbot/health', method: RequestMethod.GET },
       )
       .forRoutes('*');
   }
