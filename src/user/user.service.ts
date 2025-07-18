@@ -26,6 +26,7 @@ export class UserService {
       username,
       password: hashedPassword,
       role,
+      status: true,
     });
 
     return this.userRepository.save(user);

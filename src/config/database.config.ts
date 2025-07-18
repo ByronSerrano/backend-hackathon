@@ -1,13 +1,13 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import * as dotenv from 'dotenv';
-import * as fs from 'fs';
-import * as path from 'path';
+// import * as fs from 'fs';
+// import * as path from 'path';
 
 dotenv.config();
 
 const configService = new ConfigService();
-const dbSslFile = configService.get<string>('DB_SSL_FILE') || 'ca-certificate.crt';
+// const dbSslFile = configService.get<string>('DB_SSL_FILE') || 'ca-certificate.crt';
 
 export const dataBaseConfig: DataSourceOptions = {
   type: 'postgres',
@@ -22,19 +22,19 @@ export const dataBaseConfig: DataSourceOptions = {
     __dirname + '/../**/entities/*.entity{.ts,.js}',
   ],
   migrations: [__dirname + '/../migrations/*{.ts,.js}'],
-  synchronize: false,
-  ssl: {
-    rejectUnauthorized: false,
-    ca: fs
-      .readFileSync(
-        path.join(
-          __dirname,
-          '../../',
-          dbSslFile,
-        ),
-      )
-      .toString(),
-  },
+  synchronize: true,
+  // ssl: {
+  //   rejectUnauthorized: false,
+  //   ca: fs
+  //     .readFileSync(
+  //       path.join(
+  //         __dirname,
+  //         '../../',
+  //         dbSslFile,
+  //       ),
+  //     )
+  //     .toString(),
+  // },
 };
 
 const dataSource = new DataSource(dataBaseConfig);
