@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataBaseConfig } from './config/database.config';
+import { CameraModule } from './camera/camera.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { dataBaseConfig } from './config/database.config';
     }),
     AuthModule,
     UserModule,
+    CameraModule,
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -40,6 +42,8 @@ export class AppModule implements NestModule {
         { path: 'auth/login', method: RequestMethod.POST },
         { path: 'user', method: RequestMethod.POST },
         { path: 'user/:id', method: RequestMethod.GET },
+        { path: 'camera', method: RequestMethod.GET },
+        { path: 'camera/total-space', method: RequestMethod.GET },
       )
       .forRoutes('*');
   }
