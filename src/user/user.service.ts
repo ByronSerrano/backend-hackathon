@@ -32,8 +32,15 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async findAll() {
+    const users = await this.userRepository.find();
+
+    if (!users || users.length === 0) {
+      this.logger.warn('No users found');
+      return [];
+    }
+
+    return users;
   }
 
   async findOne(id: number) {
@@ -58,11 +65,55 @@ export class UserService {
     return user;
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const user = this.findOne(id);
+
+    if (!user) {
+      this.logger.error(`User with ID ${id} not found`);
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+
+    await this.userRepository.update(id, updateUserDto);
+
+    const newUser = await this.userRepository.findOne({ where: { id } });
+
+    return newUser;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number) {
+    const user = await this.findOne(id);
+
+    if (!user) {
+      this.logger.error(`User with ID ${id} not found`);
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+
+    await this.userRepository.update(id, { status: false });
+
+    const message = `User with id: ${id}, removed successfully`;
+    this.logger.log(message);
+
+    return {
+      message,
+      user: await this.userRepository.findOne({ where: { id } }),
+    };
+  }
+
+  async activateUser(id: number) {
+    const user = await this.findOne(id);
+
+    if (!user) {
+      this.logger.error(`User with ID ${id} not found`);
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+
+    await this.userRepository.update(id, { status: true });
+
+    const message = `User with id: ${id}, activated successfully`;
+
+    return {
+      message,
+      user: await this.userRepository.findOne({ where: { id } }),
+    };
   }
 }

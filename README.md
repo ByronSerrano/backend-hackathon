@@ -1,98 +1,98 @@
+# 🚗 Sistema Backend de Gestión de Parking Inteligente
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 📋 Descripción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Sistema backend desarrollado con **NestJS** para la gestión integral de usuarios en un sistema de parking inteligente. Este sistema está diseñado para trabajar en conjunto con una **IA de visión por computadora** que analiza las cámaras del establecimiento para administrar automáticamente los espacios de parqueo.
 
-## Description
+### 🎯 Características Principales
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Gestión de Usuarios**: Registro, autenticación y autorización de usuarios
+- **API RESTful**: Endpoints seguros y bien documentados con Swagger
+- **Autenticación JWT**: Sistema de tokens para sesiones seguras
+- **Base de Datos PostgreSQL**: Almacenamiento robusto y escalable
+- **Integración con IA**: Preparado para conectar con sistemas de visión por computadora
+- **Middleware de Seguridad**: Protección de rutas y validación de datos
+- **Docker Ready**: Configuración lista para contenedores
 
-## Project setup
+### 🏗️ Arquitectura del Sistema
+
+Este backend forma parte de un ecosistema más amplio que incluye:
+- 📷 **Sistema de Cámaras**: Monitoreo en tiempo real del parking
+- 🤖 **IA de Visión por Computadora**: Detección y análisis de vehículos
+- 🔧 **API Backend**: Gestión de datos y lógica de negocio (este proyecto)
+- 📱 **Frontend/Dashboard**: Interfaz de usuario para administradores
+
+## 🚀 Configuración del Proyecto
+
+### Prerrequisitos
+- Node.js (v18 o superior)
+- PostgreSQL
+- Docker (opcional)
+
+### Instalación
 
 ```bash
+# Clonar el repositorio
+$ git clone <repository-url>
+
+# Instalar dependencias
 $ npm install
+
+# Configurar variables de entorno
+$ cp .env.example .env
+# Editar .env con tus configuraciones de base de datos
 ```
 
-## Compile and run the project
+## 🛠️ Ejecución del Proyecto
 
 ```bash
-# development
+# Desarrollo
 $ npm run start
 
-# watch mode
+# Modo watch (recomendado para desarrollo)
 $ npm run start:dev
 
-# production mode
+# Modo producción
 $ npm run start:prod
+
+# Con Docker
+$ docker-compose up -d
 ```
 
-## Run tests
+## 📚 API Documentation
 
-```bash
-# unit tests
-$ npm run test
+Una vez que el servidor esté ejecutándose, puedes acceder a la documentación interactiva de Swagger en:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```
+http://localhost:3000/api
 ```
 
-## Deployment
+## 🤝 Equipo de Desarrollo
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Este proyecto fue desarrollado por:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **Byron Serrano** - Desarrollador Backend
+- **Alejandro Zea** - Desarrollador Backend  
+- **Christian Encalada** - Desarrollador Backend
+- **Julio Vinces** - Desarrollador Backend
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+## 📄 Licencia
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## Resources
+## 🌟 Contribuciones
 
-Check out a few resources that may come in handy when working with NestJS:
+Las contribuciones son bienvenidas. Por favor:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request

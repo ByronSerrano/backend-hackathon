@@ -31,4 +31,9 @@ export class UserController {
   async remove(@Param('id') id: string) {
     return await this.userService.remove(+id);
   }
+
+  @Patch('activate/:id')
+  async activateUser(@Param('id') id: string) {
+    return await this.userService.activateUser(+id);
+  }
 }
