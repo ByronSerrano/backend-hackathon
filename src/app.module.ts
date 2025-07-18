@@ -42,7 +42,7 @@ export class AppModule implements NestModule {
         { path: 'auth/login', method: RequestMethod.POST },
         { path: 'user', method: RequestMethod.POST },
         { path: 'user/:id', method: RequestMethod.GET },
-        { path: 'camera', method: RequestMethod.GET },
+        { path: 'camera/all-data', method: RequestMethod.GET },
         { path: 'camera/total-space', method: RequestMethod.GET },
       )
       .forRoutes('*');
